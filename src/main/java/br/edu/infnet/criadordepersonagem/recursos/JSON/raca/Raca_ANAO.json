@@ -1,0 +1,14 @@
+{
+    "Nome": "Anão",
+    "Tamanho": "Médio",
+    "Deslocamento": "7.5m",
+    "Traços Raciais": {
+      "1": "Visão no Escuro. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza.",
+      "2": "Resiliência Anã. Você possui vantagem em testes de resistência contra venenos e resistência contra dano de veneno.",
+      "3": "Treinamento Anão em Combate. Você tem proficiência com machados de batalha, machadinhas, martelos leves e martelos de guerra.",
+      "4": "Proficiência com Ferramentas. Você tem proficiência em uma ferramenta de artesão à sua escolha entre: ferramentas de ferreiro, suprimentos de cervejeiro ou ferramentas de pedreiro.",
+      "5": "Especialização em Rochas. Sempre que você realizar um teste de Inteligência (História) relacionado à origem de um trabalho em pedra, você é considerado proficiente na perícia História e adiciona o dobro do seu bônus de proficiência ao teste, ao invés do seu bônus de proficiência normal.",
+      "6": "Idiomas. Você pode falar, ler e escrever Comum e Anão. O idioma Anão é repleto de consoantes duras e sons guturais, e essa característica influencia, como um sotaque, qualquer outro idioma que o anão falar."
+    },
+    "subRaça": ["Anão da Colina", "Anão da Montanha"]
+}
