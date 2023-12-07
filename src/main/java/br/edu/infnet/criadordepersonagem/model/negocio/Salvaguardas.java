@@ -20,4 +20,13 @@ public class Salvaguardas {
         this.SalvaguardaSab = modificadoresDeAtributos.getModSab();
         this.SalvaguardaCar = modificadoresDeAtributos.getModCar();
     }
+
+    public String toString(){
+        return "Salvaguardas:\n" +
+                "Salvaguarda de Força: " + getSalvaguardaForc() + ",\n" +
+                "Salvaguarda de Destreza: " + getSalvaguardaDes() + ",\n" +
+                "Salvaguarda de Inteligência: " + getSalvaguardaInt() + ",\n" +
+                "Salvaguarda de Sabedoria: " + getSalvaguardaSab() + ",\n" +
+                "Salvaguarda de Carisma: " + getSalvaguardaCar() + ".";
+    }
 }
