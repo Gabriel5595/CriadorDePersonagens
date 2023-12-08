@@ -19,7 +19,7 @@ public class OutrosEquip {
     // To String
     public String toString() {
         return "Nome do Equipamento: " + getNomeDoEquip() + ",\n" +
-                "Quantidade: " + getQuant() + ".";
+                "Quantidade: " + getQuant() + ".\n";
     }
 
 }

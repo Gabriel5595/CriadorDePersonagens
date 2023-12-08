@@ -24,8 +24,7 @@ public class Dinheiro {
     //Métodos
     @Override
     public String toString() {
-        return "Dinheiro:\n" +
-                "Peças de Cobre: " + getPecasDeCobre() + ",\n" +
+        return "Peças de Cobre: " + getPecasDeCobre() + ",\n" +
                 "Peças de Prata: " + getPecasDePrata() + ",\n" +
                 "Peças de Ouro: " + getPecasDeOuro() + ",\n" +
                 "Peças de Platina: " + getPecasDePlatina() + ".\n";
