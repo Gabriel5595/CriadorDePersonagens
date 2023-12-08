@@ -37,7 +37,7 @@ public class PersonagemBasico {
         this.alinhamento = alinhamento;
     }
 
-    //Construtor;
+    //Construtor
 
     public PersonagemBasico(String nomePersonagem, String nomeJogador, int level, String alinhamento) {
         setNomePersonagem(nomePersonagem);
