@@ -1,9 +1,9 @@
 package br.edu.infnet.criadordepersonagem.model.testes;
 
 import br.edu.infnet.criadordepersonagem.model.negocio.*;
-import br.edu.infnet.criadordepersonagem.model.service.mappers.ArmaObjectMapper;
-import br.edu.infnet.criadordepersonagem.model.service.mappers.ArmaduraObjectMapper;
-import br.edu.infnet.criadordepersonagem.model.service.mappers.ClasseObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.ArmaObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.ArmaduraObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.ClasseObjectMapper;
 
 import java.io.IOException;
 

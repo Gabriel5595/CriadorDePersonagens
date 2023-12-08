@@ -1,5 +1,10 @@
 package br.edu.infnet.criadordepersonagem.model.negocio;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 public class ModificadoresDeAtributos extends Atributos{
     //Atributos
     private int modForc;
@@ -85,6 +90,30 @@ public class ModificadoresDeAtributos extends Atributos{
         return modCalculado;
     }
     //TODO CRIAR MÉTODO QUE ADICIONE E SUBTRAIA VALORES DOS ATRIBUTOS
+
+    public static void defineAtributos() {
+        List<Integer> listaSorteadaCompleta = new ArrayList<>();
+        for(int i = 0; i <= 5; i++) {
+            List<Integer> dadosRolados = new ArrayList<>();
+            for(int x = 0; x <= 3; x++){
+                dadosRolados.add(Dados.rolarD6());
+            }
+            System.out.println("Sequencia de rolagens " + (i+1) + " foi: " + dadosRolados + ".");
+            dadosRolados.sort(Collections.reverseOrder());
+            System.out.println("A nova ordem da sequencia é " + dadosRolados + ".");
+            System.out.println("O número " + dadosRolados.get(3) + " será removido.");
+            dadosRolados.remove(3);
+            int somaDosResultados = 0;
+            int y = 0;
+            do {
+                somaDosResultados += dadosRolados.get(y);
+                y++;
+            } while (y < dadosRolados.size());
+            System.out.println("A soma dos resultados da rolage " + (i+1) + " foi de " + somaDosResultados + ".\n");
+            listaSorteadaCompleta.add(somaDosResultados);
+        }
+        System.out.println("A lista de resultados é: " + listaSorteadaCompleta + ".");
+    }
 
     //To String
     @Override

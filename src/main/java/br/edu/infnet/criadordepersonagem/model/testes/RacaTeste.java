@@ -1,7 +1,7 @@
 package br.edu.infnet.criadordepersonagem.model.testes;
 
 import br.edu.infnet.criadordepersonagem.model.negocio.Raca;
-import br.edu.infnet.criadordepersonagem.model.service.mappers.RacaObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.RacaObjectMapper;
 import java.io.IOException;
 
 public class RacaTeste {

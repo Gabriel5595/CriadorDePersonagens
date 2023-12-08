@@ -8,13 +8,15 @@ import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.*;
+
 @Order(1)
 @Component
 public class PersonagemBasicoLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         //Introdução
-        System.out.println("[Personagem Básico] Classe iniciada com sucesso!");
+        System.out.println("[Personagem Básico] Classe iniciada com sucesso!\n");
         System.out.println("""
                 BEM VINDO, AVENTUREIRO!
                 Você está prestes a tomar o primeiro passo na sua aventura épica: a criação de um personagem!
@@ -32,5 +34,7 @@ public class PersonagemBasicoLoader implements ApplicationRunner {
         //criação da classe
         PersonagemBasico personagemBasico = new PersonagemBasico(nomePersonagem, nomeJogador);
         System.out.println(personagemBasico);
+        String jsonPersonagemBasica = convertObjectToJson(personagemBasico);
+        appendJsonToExistingFile(jsonPersonagemBasica, "Personagem Básico");
     }
 }

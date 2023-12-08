@@ -1,4 +1,4 @@
-package br.edu.infnet.criadordepersonagem.model.service.mappers;
+package br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON;
 
 import br.edu.infnet.criadordepersonagem.model.negocio.Armadura;
 import com.fasterxml.jackson.databind.ObjectMapper;

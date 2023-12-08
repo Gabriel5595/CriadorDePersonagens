@@ -1,14 +1,13 @@
-package br.edu.infnet.criadordepersonagem.model.service.mappers;
+package br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON;
 
-import br.edu.infnet.criadordepersonagem.model.negocio.Arma;
+import br.edu.infnet.criadordepersonagem.model.negocio.Classe;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.io.IOException;
 
-public class ArmaObjectMapper {
-    public static Arma lerJson() throws IOException {
-        String caminho = "./src/main/java/br/edu/infnet/criadordepersonagem/recursos/JSON/arma/Arma_ESPADA_CURTA.json";
+public class ClasseObjectMapper {
+    public static Classe lerJson() throws IOException {
+        String caminho = "./src/main/java/br/edu/infnet/criadordepersonagem/recursos/JSON/classe/classe_GUERREIRO.json";
         File arquivoJson = new File(caminho);
 
         if (!arquivoJson.exists()){
@@ -18,6 +17,6 @@ public class ArmaObjectMapper {
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(arquivoJson, Arma.class);
+        return objectMapper.readValue(arquivoJson, Classe.class);
     }
 }
