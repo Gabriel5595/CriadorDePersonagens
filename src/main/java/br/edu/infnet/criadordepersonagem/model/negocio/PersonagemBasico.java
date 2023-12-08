@@ -39,20 +39,20 @@ public class PersonagemBasico {
 
     //Construtor
 
-    public PersonagemBasico(String nomePersonagem, String nomeJogador, int level, String alinhamento) {
+    public PersonagemBasico(String nomePersonagem, String nomeJogador) {
         setNomePersonagem(nomePersonagem);
         setNomeJogador(nomeJogador);
-        setLevel(level);
-        setAlinhamento(alinhamento);
+        setLevel(1);
     }
 
     //Métodos;
 
     //toString;
+    @Override
     public String toString() {
-        return "Nome do Jogador: " + getNomeJogador() +
-                "\nNome do Personagem: " + getNomePersonagem() +
-                "\nNível: " + getLevel() +
-                "\nAlinhamento: " + getAlinhamento();
+        return "Dados Básicos do Personagem\n" +
+                "Nome do Jogador: " + getNomeJogador() + ",\n" +
+                "Nome do Personagem: " + getNomePersonagem() + ",\n" +
+                "Nível: " + getLevel() + ".\n";
     }
 }

@@ -15,4 +15,4 @@
 * Personagem Básico
 * ~~Raça~~
 * ~~Salvaguardas~~
-* Vida e Combate
+* ~~Vida e Combate~~
