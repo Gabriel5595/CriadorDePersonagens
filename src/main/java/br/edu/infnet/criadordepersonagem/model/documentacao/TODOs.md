@@ -12,7 +12,7 @@
 * ~~Modificadores de Pericias~~
 * ~~Outros Equipamentos~~
 * Perícias
-* Personagem Básico
+* ~~Personagem Básico~~
 * ~~Raça~~
 * ~~Salvaguardas~~
 * ~~Vida e Combate~~

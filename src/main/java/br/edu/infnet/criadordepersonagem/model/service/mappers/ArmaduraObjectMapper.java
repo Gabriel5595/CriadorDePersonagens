@@ -1,6 +1,5 @@
-package br.edu.infnet.criadordepersonagem.model.service;
+package br.edu.infnet.criadordepersonagem.model.service.mappers;
 
-import br.edu.infnet.criadordepersonagem.model.negocio.Arma;
 import br.edu.infnet.criadordepersonagem.model.negocio.Armadura;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

@@ -2,7 +2,7 @@ package br.edu.infnet.criadordepersonagem.model.testes;
 
 
 import br.edu.infnet.criadordepersonagem.model.negocio.Classe;
-import br.edu.infnet.criadordepersonagem.model.service.ClasseObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.ClasseObjectMapper;
 
 import java.io.IOException;
 

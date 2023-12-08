@@ -50,7 +50,7 @@ public class PersonagemBasico {
     //toString;
     @Override
     public String toString() {
-        return "Dados Básicos do Personagem\n" +
+        return "\nDados Básicos do Personagem\n" +
                 "Nome do Jogador: " + getNomeJogador() + ",\n" +
                 "Nome do Personagem: " + getNomePersonagem() + ",\n" +
                 "Nível: " + getLevel() + ".\n";
