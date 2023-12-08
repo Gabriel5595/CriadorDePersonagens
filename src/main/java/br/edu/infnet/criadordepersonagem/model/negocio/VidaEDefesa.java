@@ -3,20 +3,13 @@ package br.edu.infnet.criadordepersonagem.model.negocio;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import static br.edu.infnet.criadordepersonagem.model.negocio.Dados.*;
 
 @Getter
 @Setter
-public class VidaECombate {
+public class VidaEDefesa {
     public int classeDeArmadura;
     public int vida;
-    public Map<String, Integer> combateCorpoACorpo;
-    public Map<String, Integer> combateADistancia;
     public Classe classe;
     public Equipamentos equipamento;
     public ModificadoresDeAtributos modificadoresDeAtributos;
@@ -38,36 +31,31 @@ public class VidaECombate {
         }
     }
 
-    public void setVida(Classe classe) {
+    public void setVida(Classe classe, ModificadoresDeAtributos modificadoresDeAtributos) {
         String dadoDeVida = classe.getDadosDeVida();
         switch (dadoDeVida) {
-            case "1d4" -> this.vida = rolarD4();
-            case "1d6" -> this.vida = rolarD6();
-            case "1d8" -> this.vida = rolarD8();
-            case "1d10" -> this.vida = rolarD10();
-            case "1d12" -> this.vida = rolarD12();
-            case "1d20" -> this.vida = rolarD20();
+            case "1d4" -> this.vida = rolarD4() + modificadoresDeAtributos.getModConst();
+            case "1d6" -> this.vida = rolarD6() + modificadoresDeAtributos.getModConst();
+            case "1d8" -> this.vida = rolarD8() + modificadoresDeAtributos.getModConst();
+            case "1d10" -> this.vida = rolarD10() + modificadoresDeAtributos.getModConst();
+            case "1d12" -> this.vida = rolarD12() + modificadoresDeAtributos.getModConst();
+            case "1d20" -> this.vida = rolarD20() + modificadoresDeAtributos.getModConst();
         }
     }
 
-    public void setCombateCorpoACorpo(Equipamentos equipamentos) {
-        List<Arma> listaArmas = equipamentos.getListaArmas();
-        Map<String, Integer> combateCorpoACorpo = new HashMap<>();
-        for (Arma arma : listaArmas) {
-
-        }
-    }
-
-    public VidaECombate(Classe classe, Equipamentos equipamento, ModificadoresDeAtributos modificadoresDeAtributos) {
+    public VidaEDefesa(Classe classe, Equipamentos equipamento, ModificadoresDeAtributos modificadoresDeAtributos) {
         setClasseDeArmadura(equipamento, modificadoresDeAtributos);
-        setVida(classe);
+        setVida(classe, modificadoresDeAtributos);
         setEquipamento(equipamento);
         setClasse(classe);
         setModificadoresDeAtributos(modificadoresDeAtributos);
     }
 
+    @Override
     public String toString() {
-        return "Vida e Combate"
+        return "Vida e Defesa\n" +
+                "Vida: " + getVida() + ",\n" +
+                "Classe de Armadura: " + getClasseDeArmadura() + ".\n";
     }
 
 }
