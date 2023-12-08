@@ -36,8 +36,13 @@ public class Dados {
         return rolarDados(20);
     }
 
+    // Métodos para rolar dados de 100 lados
+    public static int rolarD100() {
+        return rolarDados(20);
+    }
+
     // Método genérico para rolar dados de n lados
-    public static int rolarDados(int lados) {
+    private static int rolarDados(int lados) {
         return random.nextInt(lados) + 1;
     }
 }
