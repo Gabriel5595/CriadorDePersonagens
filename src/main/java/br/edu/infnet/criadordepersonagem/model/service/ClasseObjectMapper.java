@@ -11,9 +11,9 @@ public class ClasseObjectMapper {
         File arquivoJson = new File(caminho);
 
         if (!arquivoJson.exists()){
-            System.out.println("Arquivo não pode ser encontrado");
+            System.out.println("Arquivo não pode ser encontrado\n");
         } else {
-            System.out.println("Arquivo encontrado com sucesso!");
+            System.out.println("Arquivo encontrado com sucesso!\n");
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
