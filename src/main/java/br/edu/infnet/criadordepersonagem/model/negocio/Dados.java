@@ -37,7 +37,7 @@ public class Dados {
     }
 
     // Método genérico para rolar dados de n lados
-    private static int rolarDados(int lados) {
+    public static int rolarDados(int lados) {
         return random.nextInt(lados) + 1;
     }
 }
