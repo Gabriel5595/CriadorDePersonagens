@@ -1,7 +1,7 @@
 {
-  "Nome": "Espada Curta",
-  "Tipo": "Marcial",
-  "Dados da Arma": "1d6",
+  "Nome": "Adaga",
+  "Tipo": "Simples",
+  "Dados da Arma": "1d4",
   "Tipo de Dano": "Perfurante",
   "Corpo-a-corpo ou Distância": "Corpo-a-corpo"
 }

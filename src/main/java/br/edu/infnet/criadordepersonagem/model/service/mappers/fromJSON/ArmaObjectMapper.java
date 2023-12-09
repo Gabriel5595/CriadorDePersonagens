@@ -7,8 +7,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class ArmaObjectMapper {
-    public static Arma lerJson() throws IOException {
-        String caminho = "./src/main/java/br/edu/infnet/criadordepersonagem/recursos/JSON/arma/Arma_ESPADA_CURTA.json";
+    public static Arma lerJson(String arma) throws IOException {
+        String caminho = "./src/main/java/br/edu/infnet/criadordepersonagem/recursos/JSON/arma/Arma_"+arma+".json";
         File arquivoJson = new File(caminho);
 
         if (!arquivoJson.exists()){

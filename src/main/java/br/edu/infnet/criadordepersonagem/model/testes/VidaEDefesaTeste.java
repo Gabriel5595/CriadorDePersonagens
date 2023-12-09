@@ -11,9 +11,10 @@ public class VidaEDefesaTeste {
     public static void main(String[] args) throws IOException {
         Classe classe = ClasseObjectMapper.lerJson("ANAO");
 
-        Arma arma = ArmaObjectMapper.lerJson();
-        Armadura armadura = ArmaduraObjectMapper.lerJson();
-        OutrosEquip outrosEquip = new OutrosEquip("tocha",1);
+        Arma arma = ArmaObjectMapper.lerJson("ESPADA_CURTA");
+        Armadura armadura = ArmaduraObjectMapper.lerJson("COTA_DE_MALHA");
+        OutrosEquip outrosEquip = new OutrosEquip();
+        outrosEquip.adicionaOutrosEquip("Carda de Cânhamo", 1);
         Dinheiro dinheiro = new Dinheiro(100, 50,10,2);
         Equipamentos equipamentos = new Equipamentos(dinheiro);
         equipamentos.adicionarArma(arma);

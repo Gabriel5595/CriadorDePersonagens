@@ -11,7 +11,7 @@
 * ~~Modificadores de Atributos~~
 * ~~Modificadores de Pericias~~
 * ~~Outros Equipamentos~~
-* Perícias
+* ~~Perícias~~
 * ~~Personagem Básico~~
 * ~~Raça~~
 * ~~Salvaguardas~~

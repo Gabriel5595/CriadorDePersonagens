@@ -1,0 +1,31 @@
+{
+  "Arma": {
+    "Nome": "Espada Curta",
+    "Tipo": "Marcial",
+    "Dados da Arma": "1d6",
+    "Tipo de Dano": "Perfurante",
+    "Corpo-a-corpo ou Distância": "Corpo-a-corpo"
+  },
+  "Armadura": {
+    "Nome": "Couro",
+    "Tipo de Armadura": "Leve",
+    "Defesa": 11,
+    "Requisito de Força": 0,
+    "Desvantagem de Furtividade": false
+  },
+  "Dinheiro": {
+    "pecasDeCobre": 100,
+    "pecasDePrata": 50,
+    "pecasDeOuro": 10,
+    "pecasDePlatina": 0
+  },
+  "Outros Equipamentos": {
+    "listaDeOutrosEquips": {
+      "Capa": 1,
+      "Tocha": 6,
+      "Ração": 30,
+      "Mochila": 1,
+      "Carda de Cânhamo": 1
+    }
+  }
+}

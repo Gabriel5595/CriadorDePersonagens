@@ -3,23 +3,35 @@ package br.edu.infnet.criadordepersonagem.model.negocio;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Getter
 @Setter
 public class OutrosEquip {
     //Atributos
-    public String nomeDoEquip;
-    public int quant;
+    Map<String, Integer> listaDeOutrosEquips;
 
     //Construtor
-    public OutrosEquip(String nomeDoEquip, int quant) {
-        setNomeDoEquip(nomeDoEquip);
-        setQuant(quant);
+    public OutrosEquip() {
+        this.listaDeOutrosEquips = new HashMap<>();
     }
     // Métodos
+    public void adicionaOutrosEquip(String nomeDoEquip, int quant){
+        listaDeOutrosEquips.put(nomeDoEquip, quant);
+    }
+
     // To String
     public String toString() {
-        return "Nome do Equipamento: " + getNomeDoEquip() + ",\n" +
-                "Quantidade: " + getQuant() + ".\n";
+        StringBuilder EquipsFormatados = new StringBuilder();
+        for (Map.Entry<String, Integer> Equip : getListaDeOutrosEquips().entrySet()){
+            EquipsFormatados.append(Equip.getKey())
+                    .append(": ")
+                    .append(Equip.getValue())
+                    .append("\n");
+        }
+
+        return "Outros Equipamentos:\n" + EquipsFormatados;
     }
 
 }

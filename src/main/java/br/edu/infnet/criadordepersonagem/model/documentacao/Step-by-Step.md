@@ -3,10 +3,9 @@
 1. Sortear atributos
 2. Escolher raça
 3. Escolher classe
-4. Definir antecedentes
-5. Escolher equipamentos
-6. Denifir Classe de armadura
-7. Definir Vida
-8. Definir Salvaguardas passivas
-9. Definir iniciativa
-10. Definir modificador de dano e ataque
+4. Escolher equipamentos
+5. Denifir Classe de armadura
+6. Definir Vida
+7. Definir Salvaguardas passivas
+8. Definir iniciativa
+9. Definir modificador de dano e ataque

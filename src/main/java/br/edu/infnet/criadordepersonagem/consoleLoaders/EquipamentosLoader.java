@@ -1,18 +1,26 @@
-package br.edu.infnet.criadordepersonagem.model.testes;
+package br.edu.infnet.criadordepersonagem.consoleLoaders;
 
 import br.edu.infnet.criadordepersonagem.model.negocio.Arma;
 import br.edu.infnet.criadordepersonagem.model.negocio.Armadura;
+import br.edu.infnet.criadordepersonagem.model.negocio.Dinheiro;
+import br.edu.infnet.criadordepersonagem.model.negocio.OutrosEquip;
 import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.ArmaObjectMapper;
 import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.ArmaduraObjectMapper;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.appendJsonToExistingFile;
 import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.convertObjectToJson;
 
-public class ArmaduraTeste {
-    public static void main(String[] args) throws IOException {
+@Order(5)
+@Component
+public class EquipamentosLoader implements ApplicationRunner {
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
         System.out.println("[Equipamentos] Classe iniciada com sucesso!\n");
         System.out.println("""
                 Hora de encher a mochila! (Não se preocupe, você vai ganhar uma mochila).
@@ -84,5 +92,28 @@ public class ArmaduraTeste {
 
         String jsonArmadura = convertObjectToJson(armadura);
         appendJsonToExistingFile(jsonArmadura, "Armadura");
+
+        System.out.println("""
+                Quem diria! Já saiu da casa dos seus pais? Porque o seu personagem acabou de ganhar uma GRANA!
+                Isso mesmo! Estamos enchendo os seus bolsos!
+                """);
+
+        Dinheiro dinheiro = new Dinheiro(100, 50,10,0);
+        System.out.println(dinheiro.toString());
+
+        String jsonDinheiro = convertObjectToJson(dinheiro);
+        appendJsonToExistingFile(jsonDinheiro, "Dinheiro");
+
+        OutrosEquip outrosEquip = new OutrosEquip();
+        outrosEquip.adicionaOutrosEquip("Carda de Cânhamo", 1);
+        outrosEquip.adicionaOutrosEquip("Tocha", 6);
+        outrosEquip.adicionaOutrosEquip("Mochila", 1);
+        outrosEquip.adicionaOutrosEquip("Capa", 1);
+        outrosEquip.adicionaOutrosEquip("Ração", 30);
+
+        System.out.println(outrosEquip.toString());
+
+        String jsonOutrosEquip = convertObjectToJson(outrosEquip);
+        appendJsonToExistingFile(jsonOutrosEquip, "Outros Equipamentos");
     }
 }
