@@ -36,7 +36,6 @@ public class ClassToJSON {
         String existingFileName = "./src/main/java/br/edu/infnet/criadordepersonagem/recursos/JSON/personagem/Personagem.json";
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(existingFileName, "rw")) {
             long fileLength = randomAccessFile.length();
-            System.out.println("O comprimento do arquivo é: " + fileLength);
 
             if (fileLength == 0) {
                 randomAccessFile.write("{".getBytes());
@@ -47,18 +46,15 @@ public class ClassToJSON {
             if (fileLength > 0) {
                 randomAccessFile.seek(fileLength - 1); // Posiciona o ponteiro no último caractere do arquivo
                 char lastChar = (char) randomAccessFile.readByte();
-                System.out.print("O último caractére é " + lastChar);
 
                 if (lastChar == '}') {
 
                     randomAccessFile.seek(fileLength - 1);
                     randomAccessFile.setLength(fileLength - 1);
                     long newFileLength = randomAccessFile.length();
-                    System.out.print("O novo comprimento do arquivo é: " + newFileLength);
 
                     randomAccessFile.seek(newFileLength - 1);
                     char newLastChar = (char) randomAccessFile.readByte();
-                    System.out.print("O novo último caractére é " + newLastChar);
 
                     if (newLastChar == '}') {
 
