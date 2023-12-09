@@ -1,15 +1,22 @@
-package br.edu.infnet.criadordepersonagem.model.testes;
+package br.edu.infnet.criadordepersonagem.consoleLoaders;
 
 import br.edu.infnet.criadordepersonagem.model.negocio.Raca;
 import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.RacaObjectMapper;
-import java.io.IOException;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
 import java.util.Scanner;
 
 import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.appendJsonToExistingFile;
 import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.convertObjectToJson;
 
-public class RacaTeste {
-    public static void main(String[] args) throws IOException {
+@Order(3)
+@Component
+public class RacaLoader implements ApplicationRunner {
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
         System.out.println("[Raça] Classe iniciada com sucesso!\n");
         System.out.println("""
                 Agora é a hora de escolher a qual raça o seu personagem vai escolher!
@@ -18,6 +25,7 @@ public class RacaTeste {
                 Elfos são um povo mágico de graça sobrenatural, vivendo no mundo sem pertencer inteiramente à ele. Eles vivem em lugares de beleza etérea, no meio de antigas florestas ou em torres prateadas brilhando com luz feérica, onde uma música suave ecoa através do ar e fragrâncias suaves flutuam na brisa. Elfos amam a natureza e a magia, a arte e o estudo, a música e a poesia, e as coisas boas do mundo.
                 Reinos ricos de antiga grandeza, salões esculpidos nas raízes das montanhas, o eco de picaretas e martelos nas minas profundas e nas forjas ardentes, um compromisso com o clã e a tradição, e um ódio impetuoso contra goblins e orcs – essas linhas comuns unem todos os anões.
                 """);
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Qual raça você escolhe? Humano, Elfo ou Anão?");
         String racaEscolhida = scanner.nextLine();
@@ -51,5 +59,3 @@ public class RacaTeste {
         appendJsonToExistingFile(jsonRaca, "Raça");
     }
 }
-
-//Teste OK

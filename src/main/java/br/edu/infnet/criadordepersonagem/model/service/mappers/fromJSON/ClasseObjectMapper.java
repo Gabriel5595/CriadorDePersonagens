@@ -6,8 +6,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class ClasseObjectMapper {
-    public static Classe lerJson() throws IOException {
-        String caminho = "./src/main/java/br/edu/infnet/criadordepersonagem/recursos/JSON/classe/classe_GUERREIRO.json";
+    public static Classe lerJson(String classe) throws IOException {
+        String caminho = "./src/main/java/br/edu/infnet/criadordepersonagem/recursos/JSON/classe/classe_"+classe+".json";
         File arquivoJson = new File(caminho);
 
         if (!arquivoJson.exists()){

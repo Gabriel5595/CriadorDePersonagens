@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class VidaEDefesaTeste {
     public static void main(String[] args) throws IOException {
-        Classe classe = ClasseObjectMapper.lerJson();
+        Classe classe = ClasseObjectMapper.lerJson("ANAO");
 
         Arma arma = ArmaObjectMapper.lerJson();
         Armadura armadura = ArmaduraObjectMapper.lerJson();

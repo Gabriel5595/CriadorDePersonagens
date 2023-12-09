@@ -1,0 +1,14 @@
+{
+  "Nome": "Elfo",
+  "Tamanho": "Médio",
+  "Deslocamento": "9m",
+  "Traços Raciais": {
+    "1": "Aumento no Valor de Habilidade. Seu valor de Destreza aumenta em 2.",
+    "2": "Visão no Escuro. Acostumado às florestas crepusculares e ao céu noturno, você possui uma visão superior em condições de escuridão e na penumbra. Você pode enxergar na penumbra a até 18 metros como se fosse na luz plena, e no escuro como se fosse na penumbra.",
+    "3": "Sentidos Aguçados. Você tem proficiência na perícia Percepção.",
+    "4": "Ancestral Feérico. Você tem vantagem nos testes de resistência para resistir a ser enfeitiçado e magias não podem colocá-lo para dormir.",
+    "5": "Transe. Elfos não precisam dormir. Ao invés disso, eles meditam profundamente, permanecendo semiconscientes, durante 4 horas por dia.",
+    "6": "Idiomas. Você pode falar, ler e escrever Comum e Élfico. O Élfico é um idioma fluido, com entonações sutis e gramática complexa."
+  },
+  "subRaça": ["Alto Elfo", "Elfo da Floresta", "Elfo Negro"]
+}

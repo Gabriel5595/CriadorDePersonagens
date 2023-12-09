@@ -1,0 +1,10 @@
+{
+  "Nome": "Humano",
+  "Tamanho": "Médio",
+  "Deslocamento": "9m",
+  "Traços Raciais": {
+    "1": "Todos os seus valores de habilidade aumentam em 1.",
+    "2": "Você pode falar, ler e escrever Comum e outro idioma adicional, à sua escolha."
+  },
+  "subRaça": ["Nenhuma"]
+}

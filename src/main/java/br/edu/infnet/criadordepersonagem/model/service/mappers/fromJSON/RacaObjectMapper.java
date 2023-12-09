@@ -7,8 +7,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class RacaObjectMapper {
-    public static Raca lerJson() throws IOException {
-        String caminho = "./src/main/java/br/edu/infnet/criadordepersonagem/recursos/JSON/raca/Raca_ANAO.json";
+    public static Raca lerJson(String raca) throws IOException {
+        String caminho = "./src/main/java/br/edu/infnet/criadordepersonagem/recursos/JSON/raca/Raca_"+raca+".json";
         File arquivoJson = new File(caminho);
 
         if (!arquivoJson.exists()){

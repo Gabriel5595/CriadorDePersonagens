@@ -91,7 +91,7 @@ public class ModificadoresDeAtributos extends Atributos{
     }
     //TODO CRIAR MÉTODO QUE ADICIONE E SUBTRAIA VALORES DOS ATRIBUTOS
 
-    public static void defineAtributos() {
+    public static List<Integer> sorteiaAtributos() {
         List<Integer> listaSorteadaCompleta = new ArrayList<>();
         for(int i = 0; i <= 5; i++) {
             List<Integer> dadosRolados = new ArrayList<>();
@@ -113,6 +113,7 @@ public class ModificadoresDeAtributos extends Atributos{
             listaSorteadaCompleta.add(somaDosResultados);
         }
         System.out.println("A lista de resultados é: " + listaSorteadaCompleta + ".");
+        return listaSorteadaCompleta;
     }
 
     //To String

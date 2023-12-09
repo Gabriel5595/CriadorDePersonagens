@@ -1,17 +1,22 @@
-package br.edu.infnet.criadordepersonagem.model.testes;
-
+package br.edu.infnet.criadordepersonagem.consoleLoaders;
 
 import br.edu.infnet.criadordepersonagem.model.negocio.Classe;
 import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.ClasseObjectMapper;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.appendJsonToExistingFile;
 import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.convertObjectToJson;
 
-public class ClasseTeste {
-    public static void main(String[] args) throws IOException {
+@Order(4)
+@Component
+public class ClasseLoader implements ApplicationRunner {
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
         System.out.println("\n[Classe] Classe iniciada com sucesso!\n");
         System.out.println("""
                 E o que você faz nesse mundo fantástico? Está na hora de escolher a sua classe!
