@@ -1,6 +1,5 @@
 package br.edu.infnet.criadordepersonagem.model.negocio;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +13,7 @@ public class Dinheiro {
     public int pecasDePlatina;
 
     //Construtor
-    public Dinheiro(int pecasDeCobre, int pecasDePrata, int pecasDeOuro, int pecasDePlatina){
+    public void adicionaDinheiro(int pecasDeCobre, int pecasDePrata, int pecasDeOuro, int pecasDePlatina){
         setPecasDeCobre(pecasDeCobre);
         setPecasDePrata(pecasDePrata);
         setPecasDeOuro(pecasDeOuro);

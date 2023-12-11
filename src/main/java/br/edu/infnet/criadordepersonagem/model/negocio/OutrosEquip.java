@@ -10,12 +10,8 @@ import java.util.Map;
 @Setter
 public class OutrosEquip {
     //Atributos
-    Map<String, Integer> listaDeOutrosEquips;
+    Map<String, Integer> listaDeOutrosEquips = new HashMap<>();
 
-    //Construtor
-    public OutrosEquip() {
-        this.listaDeOutrosEquips = new HashMap<>();
-    }
     // Métodos
     public void adicionaOutrosEquip(String nomeDoEquip, int quant){
         listaDeOutrosEquips.put(nomeDoEquip, quant);

@@ -1,15 +1,14 @@
 package br.edu.infnet.criadordepersonagem.model.testes;
 
-import br.edu.infnet.criadordepersonagem.model.negocio.Arma;
+
 import br.edu.infnet.criadordepersonagem.model.negocio.Armadura;
-import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.ArmaObjectMapper;
-import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.ArmaduraObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ArmaduraObjectMapper;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.appendJsonToExistingFile;
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.convertObjectToJson;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.appendJsonToExistingFile;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.convertObjectToJson;
 
 public class ArmaduraTeste {
     public static void main(String[] args) throws IOException {
@@ -20,38 +19,6 @@ public class ArmaduraTeste {
                 """);
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Como você se vê batalhando? Com um Espada Curta, uma Adaga ou um Arco Longo?");
-
-        String armaEscolhida = scanner.nextLine();
-
-        boolean armaFinalizada = false;
-        String armaFormatada = "";
-        do{
-            switch(armaEscolhida){
-                case "Espada Curta":
-                    armaFormatada = "ESPADA_CURTA";
-                    armaFinalizada = true;
-                    break;
-                case "Adaga":
-                    armaFormatada = "ADAGA";
-                    armaFinalizada = true;
-                    break;
-                case "Arco Longo":
-                    armaFormatada = "ARCO_LONGO";
-                    armaFinalizada = true;
-                    break;
-                default:
-                    System.out.println("A informação inserida não corresponde a nenhuma das opções possíveis. Verifica a " +
-                            "ortografia da palavra utilizada e tente novamente");
-            }
-        } while(!armaFinalizada);
-
-        Arma arma = ArmaObjectMapper.lerJson(armaFormatada);
-        System.out.println(arma.toString());
-
-        String jsonArma = convertObjectToJson(arma);
-        appendJsonToExistingFile(jsonArma, "Arma");
-
         System.out.println("E como serão as suas vestimentas no campo de batalha? Uma Cota de Malha, Couro ou um Gibão de " +
                 "Peles?");
 
@@ -84,5 +51,7 @@ public class ArmaduraTeste {
 
         String jsonArmadura = convertObjectToJson(armadura);
         appendJsonToExistingFile(jsonArmadura, "Armadura");
+
+        ArmaduraObjectMapper.escreverJson(armadura);
     }
 }

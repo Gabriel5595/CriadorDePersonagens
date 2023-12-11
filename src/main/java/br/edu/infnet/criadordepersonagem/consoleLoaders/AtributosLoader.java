@@ -1,7 +1,11 @@
 package br.edu.infnet.criadordepersonagem.consoleLoaders;
 
 
-import br.edu.infnet.criadordepersonagem.model.negocio.ModificadoresDeAtributos;
+import br.edu.infnet.criadordepersonagem.model.negocio.Atributos;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.AtributosObjectMapper;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.appendJsonToExistingFile;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.convertObjectToJson;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -11,13 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static br.edu.infnet.criadordepersonagem.model.negocio.ModificadoresDeAtributos.sorteiaAtributos;
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.appendJsonToExistingFile;
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.convertObjectToJson;
-
 @Order(2)
 @Component
-public class ModificadoresDeAtributosLoader implements ApplicationRunner {
+public class AtributosLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("[Atributos e Modificadores de Atributos] Classe iniciada com sucesso!\n");
@@ -27,7 +27,7 @@ public class ModificadoresDeAtributosLoader implements ApplicationRunner {
                 Esse processo será repetido 6 vezes.
                 Ao final do processo os 6 resultados serão apresentados e você poderá escrever a ordem dos atributos respectivo a cada resultado.
                 """);
-        List<Integer> listaSorteadaCompleta = sorteiaAtributos();
+        List<Integer> listaSorteadaCompleta = Atributos.sorteiaAtributos();
 
         Scanner scanner = new Scanner(System.in);
         List<String> atributosEscolhidos = new ArrayList<>();
@@ -88,11 +88,18 @@ public class ModificadoresDeAtributosLoader implements ApplicationRunner {
             }
         } while (escolhas < 6);
 
-        ModificadoresDeAtributos modificadoresDeAtributos = new ModificadoresDeAtributos(forca, destreza, constituicao,
-                inteligencia, sabedoria, carisma);
-        System.out.print(modificadoresDeAtributos);
-        String jsonModificadoresDeAtributo = convertObjectToJson(modificadoresDeAtributos);
-        appendJsonToExistingFile(jsonModificadoresDeAtributo, "Modificadores de Atributos");
+        //Instancia atributos novos
+        Atributos atributos = new Atributos();
+        //adiciona os atributos
+        atributos.adicionaAtributos(forca, destreza, constituicao, inteligencia, sabedoria, carisma);
+        System.out.print(atributos);
+
+        //Cria arquivo Json com a classe finalizada.
+        AtributosObjectMapper.escreverJson(atributos);
+
+        //Adiciona a classe finalizada ao arquivo personagem.json
+        String jsonAtributos = convertObjectToJson(atributos);
+        appendJsonToExistingFile(jsonAtributos, "Atributos e Modificadores");
     }
 
 }

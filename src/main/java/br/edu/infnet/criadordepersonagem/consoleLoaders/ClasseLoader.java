@@ -1,16 +1,21 @@
 package br.edu.infnet.criadordepersonagem.consoleLoaders;
 
 import br.edu.infnet.criadordepersonagem.model.negocio.Classe;
-import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.ClasseObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.negocio.ModificadoresDePericias;
+import br.edu.infnet.criadordepersonagem.model.negocio.Pericias;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.AtributosObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClasseObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.PericiasObjectMapper;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.appendJsonToExistingFile;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.convertObjectToJson;
+
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
-
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.appendJsonToExistingFile;
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.convertObjectToJson;
 
 @Order(4)
 @Component
@@ -39,14 +44,52 @@ public class ClasseLoader implements ApplicationRunner {
             switch(classeEscolhida){
                 case "Guerreiro":
                     classeFormatada = "GUERREIRO";
+                    //Cria Instancia classe Pericias
+                    Pericias periciasGuerreiro = new Pericias();
+                    //Adiciona informação a classe Pericia sem o construtor
+                    periciasGuerreiro.adicionarPericias(false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, false);
+                    //Transforma classe me arquivo Json
+                    PericiasObjectMapper.escreverJson(periciasGuerreiro);
+
+                    //Cria Instancia classe ModificadorDePericia
+                    ModificadoresDePericias modificadoresDePericiasGuerreiro = new ModificadoresDePericias();
+                    //Adiciona informação a classe ModificadorDePericia sem o construtor
+                    modificadoresDePericiasGuerreiro.adicionarModificadoresDePericias(AtributosObjectMapper.lerOpcaoEscolhida(), periciasGuerreiro);
+                    //Imprime os atributos
+                    System.out.println(modificadoresDePericiasGuerreiro.toString());
+
+                    //Transforma classe em arquivo Json
+                    String jsonPericiasGuerreiro = convertObjectToJson(modificadoresDePericiasGuerreiro);
+                    appendJsonToExistingFile(jsonPericiasGuerreiro, "Perícias");
                     finalizado = true;
                     break;
                 case "Patrulheiro":
                     classeFormatada = "PATRULHEIRO";
+
+                    Pericias periciasPatrulheiro = new Pericias();
+                    periciasPatrulheiro.adicionarPericias(false,false,true,false,false,false,false,false,false,true, false, false,true,false,false,false,true);
+
+                    ModificadoresDePericias modificadoresDePericiasPatrulheiro = new ModificadoresDePericias();
+                    modificadoresDePericiasPatrulheiro.adicionarModificadoresDePericias(AtributosObjectMapper.lerOpcaoEscolhida(), periciasPatrulheiro);
+                    System.out.println(modificadoresDePericiasPatrulheiro.toString());
+
+                    String jsonPericiasPatrulheiro = convertObjectToJson(modificadoresDePericiasPatrulheiro);
+                    appendJsonToExistingFile(jsonPericiasPatrulheiro, "Perícias");
+
                     finalizado = true;
                     break;
                 case "Ladino":
                     classeFormatada = "LADINO";
+                    Pericias periciasLadino = new Pericias();
+                    periciasLadino.adicionarPericias(true,false,true,false,true,false,false,false,false,false,false, false, true,false,false,false,false);
+
+                    ModificadoresDePericias modificadoresDePericiasLadino = new ModificadoresDePericias();
+                    modificadoresDePericiasLadino.adicionarModificadoresDePericias(AtributosObjectMapper.lerOpcaoEscolhida(), periciasLadino);
+                    System.out.println(modificadoresDePericiasLadino.toString());
+
+                    String jsonPericiasLadino = convertObjectToJson(modificadoresDePericiasLadino);
+                    appendJsonToExistingFile(jsonPericiasLadino, "Perícias");
+
                     finalizado = true;
                     break;
                 default:
@@ -55,9 +98,14 @@ public class ClasseLoader implements ApplicationRunner {
             }
         } while(!finalizado);
 
+        //Instancia classe com atibutos da base de dados
         Classe classe = ClasseObjectMapper.lerJson(classeFormatada);
         System.out.println(classe.toString());
 
+        //Cria arquivo Json com a classe finalizada.
+        ClasseObjectMapper.escreverJson(classe);
+
+        //Adiciona a classe finalizada ao arquivo personagem.json
         String jsonClasse = convertObjectToJson(classe);
         appendJsonToExistingFile(jsonClasse, "Classe");
     }

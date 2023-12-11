@@ -1,5 +1,8 @@
 package br.edu.infnet.criadordepersonagem.model.negocio;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,17 +10,23 @@ import static br.edu.infnet.criadordepersonagem.model.negocio.Dados.*;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class VidaEDefesa {
-    public int classeDeArmadura;
+    @JsonProperty("Vida")
     public int vida;
+    @JsonProperty("Classe de Armadura")
+    public int classeDeArmadura;
+    @JsonIgnore
     public Classe classe;
-    public Equipamentos equipamento;
-    public ModificadoresDeAtributos modificadoresDeAtributos;
+    @JsonIgnore
+    public Armadura armadura;
+    @JsonIgnore
+    public Atributos atributos;
 
-    public void setClasseDeArmadura(Equipamentos equipamentos, ModificadoresDeAtributos modificadoresDeAtributos) {
-        String tipoDeArmadura = equipamentos.getListaArmaduras().get(0).getTipoDeArmadura();
-        int defesa = equipamentos.getListaArmaduras().get(0).getDefesa();
-        int modDes = modificadoresDeAtributos.getModDes();
+    public void setClasseDeArmadura(Armadura armadura, Atributos atributos) {
+        String tipoDeArmadura = armadura.getTipoDeArmadura();
+        int defesa = armadura.getDefesa();
+        int modDes = atributos.getModDes();
         if (tipoDeArmadura.equals("Pesada")) {
             this.classeDeArmadura = defesa;
         } else if (tipoDeArmadura.equals("Média")) {
@@ -31,24 +40,21 @@ public class VidaEDefesa {
         }
     }
 
-    public void setVida(Classe classe, ModificadoresDeAtributos modificadoresDeAtributos) {
+    public void setVida(Classe classe, Atributos atributos) {
         String dadoDeVida = classe.getDadosDeVida();
         switch (dadoDeVida) {
-            case "1d4" -> this.vida = rolarD4() + modificadoresDeAtributos.getModConst();
-            case "1d6" -> this.vida = rolarD6() + modificadoresDeAtributos.getModConst();
-            case "1d8" -> this.vida = rolarD8() + modificadoresDeAtributos.getModConst();
-            case "1d10" -> this.vida = rolarD10() + modificadoresDeAtributos.getModConst();
-            case "1d12" -> this.vida = rolarD12() + modificadoresDeAtributos.getModConst();
-            case "1d20" -> this.vida = rolarD20() + modificadoresDeAtributos.getModConst();
+            case "1d4" -> this.vida = rolarD4() + atributos.getModConst();
+            case "1d6" -> this.vida = rolarD6() + atributos.getModConst();
+            case "1d8" -> this.vida = rolarD8() + atributos.getModConst();
+            case "1d10" -> this.vida = rolarD10() + atributos.getModConst();
+            case "1d12" -> this.vida = rolarD12() + atributos.getModConst();
+            case "1d20" -> this.vida = rolarD20() + atributos.getModConst();
         }
     }
 
-    public VidaEDefesa(Classe classe, Equipamentos equipamento, ModificadoresDeAtributos modificadoresDeAtributos) {
-        setClasseDeArmadura(equipamento, modificadoresDeAtributos);
-        setVida(classe, modificadoresDeAtributos);
-        setEquipamento(equipamento);
-        setClasse(classe);
-        setModificadoresDeAtributos(modificadoresDeAtributos);
+    public VidaEDefesa(Classe classe, Armadura armadura, Atributos atributos) {
+        setClasseDeArmadura(armadura, atributos);
+        setVida(classe, atributos);
     }
 
     @Override
@@ -57,5 +63,4 @@ public class VidaEDefesa {
                 "Vida: " + getVida() + ",\n" +
                 "Classe de Armadura: " + getClasseDeArmadura() + ".\n";
     }
-
 }

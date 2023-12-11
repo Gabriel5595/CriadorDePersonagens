@@ -1,4 +1,4 @@
-package br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON;
+package br.edu.infnet.criadordepersonagem.model.service.mappers.JSON;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -11,22 +11,6 @@ public class ClassToJSON {
         try {
             return objectMapper.writeValueAsString(object);
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public static String readJsonFromFile(String fileName) {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
-            StringBuilder content = new StringBuilder();
-            String line;
-
-            while ((line = bufferedReader.readLine()) != null) {
-                content.append(line);
-            }
-
-            return content.toString();
-        } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
@@ -56,7 +40,7 @@ public class ClassToJSON {
                     randomAccessFile.seek(newFileLength - 1);
                     char newLastChar = (char) randomAccessFile.readByte();
 
-                    if (newLastChar == '}') {
+                    if (newLastChar == '}' || newLastChar == '\n') {
 
                         randomAccessFile.write(",".getBytes());
                         randomAccessFile.write(("\"" + identifier + "\":" + newJson).getBytes());

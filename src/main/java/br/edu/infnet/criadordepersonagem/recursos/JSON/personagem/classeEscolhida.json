@@ -1,0 +1,8 @@
+{
+  "Nome" : "Patrulheiro",
+  "Dado de Vida" : "1d10",
+  "Características da Classe" : {
+    "Inimigo Favorito" : "A partir do 1° nível, você tem experiência significativa estudando, rastreando, caçando e, até mesmo, falando com certos tipos de inimigos. Escolha um tipo de inimigo favorito: aberrações, bestas, celestiais, constructos, corruptores, dragões, elementais, fadas, gigantes, limos, monstruosidades, mortos-vivos ou plantas. Alternativamente, você pode escolher duas raças de humanoides (como gnolls e orcs) para seus inimigos favoritos.",
+    "Explorador Natural" : "Você está particularmente familiarizado com um tipo de ambiente natural e é perito em viajar e sobreviver em tais regiões. Escolha um tipo de terreno favorito: ártico, costa, deserto, floresta, montanha, pântano, planície ou subterrâneo. Quando você fizer um teste de Inteligência ou de Sabedoria relacionado ao seu terreno favorito, seu bônus de proficiência será dobrado se você estiver usando uma perícia na qual seja proficiente."
+  }
+}

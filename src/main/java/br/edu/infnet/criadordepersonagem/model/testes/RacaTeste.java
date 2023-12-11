@@ -1,12 +1,12 @@
 package br.edu.infnet.criadordepersonagem.model.testes;
 
 import br.edu.infnet.criadordepersonagem.model.negocio.Raca;
-import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.RacaObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.RacaObjectMapper;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.appendJsonToExistingFile;
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.convertObjectToJson;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.appendJsonToExistingFile;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.convertObjectToJson;
 
 public class RacaTeste {
     public static void main(String[] args) throws IOException {
@@ -44,12 +44,16 @@ public class RacaTeste {
             }
         } while(!finalizado);
 
+        //Instancia classe com atibutos da base de dados
         Raca raca = RacaObjectMapper.lerJson(racaFormatada);
         System.out.println(raca.toString());
 
+        //Cria arquivo Json com a classe finalizada.
+        RacaObjectMapper.escreverJson(raca);
+
+        //Adiciona a classe finalizada ao arquivo personagem.json
         String jsonRaca = convertObjectToJson(raca);
         appendJsonToExistingFile(jsonRaca, "Raça");
     }
 }
 
-//Teste OK

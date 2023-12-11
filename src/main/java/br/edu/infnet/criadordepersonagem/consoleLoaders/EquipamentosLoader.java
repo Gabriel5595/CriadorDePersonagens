@@ -4,8 +4,10 @@ import br.edu.infnet.criadordepersonagem.model.negocio.Arma;
 import br.edu.infnet.criadordepersonagem.model.negocio.Armadura;
 import br.edu.infnet.criadordepersonagem.model.negocio.Dinheiro;
 import br.edu.infnet.criadordepersonagem.model.negocio.OutrosEquip;
-import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.ArmaObjectMapper;
-import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.ArmaduraObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ArmaObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ArmaduraObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.DinheiroObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.OutrosEquipObjectMapper;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -13,8 +15,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.appendJsonToExistingFile;
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.convertObjectToJson;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.appendJsonToExistingFile;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.convertObjectToJson;
 
 @Order(5)
 @Component
@@ -57,6 +59,8 @@ public class EquipamentosLoader implements ApplicationRunner {
         Arma arma = ArmaObjectMapper.lerJson(armaFormatada);
         System.out.println(arma.toString());
 
+        ArmaObjectMapper.escreverJson(arma);
+
         String jsonArma = convertObjectToJson(arma);
         appendJsonToExistingFile(jsonArma, "Arma");
 
@@ -90,6 +94,8 @@ public class EquipamentosLoader implements ApplicationRunner {
         Armadura armadura = ArmaduraObjectMapper.lerJson(armaduraFormatada);
         System.out.println(armadura.toString());
 
+        ArmaduraObjectMapper.escreverJson(armadura);
+
         String jsonArmadura = convertObjectToJson(armadura);
         appendJsonToExistingFile(jsonArmadura, "Armadura");
 
@@ -98,8 +104,11 @@ public class EquipamentosLoader implements ApplicationRunner {
                 Isso mesmo! Estamos enchendo os seus bolsos!
                 """);
 
-        Dinheiro dinheiro = new Dinheiro(100, 50,10,0);
+        Dinheiro dinheiro = new Dinheiro();
+        dinheiro.adicionaDinheiro(100,50,2,0);
         System.out.println(dinheiro.toString());
+
+        DinheiroObjectMapper.escreverJson(dinheiro);
 
         String jsonDinheiro = convertObjectToJson(dinheiro);
         appendJsonToExistingFile(jsonDinheiro, "Dinheiro");
@@ -112,6 +121,8 @@ public class EquipamentosLoader implements ApplicationRunner {
         outrosEquip.adicionaOutrosEquip("Ração", 30);
 
         System.out.println(outrosEquip.toString());
+
+        OutrosEquipObjectMapper.escreverJson(outrosEquip);
 
         String jsonOutrosEquip = convertObjectToJson(outrosEquip);
         appendJsonToExistingFile(jsonOutrosEquip, "Outros Equipamentos");

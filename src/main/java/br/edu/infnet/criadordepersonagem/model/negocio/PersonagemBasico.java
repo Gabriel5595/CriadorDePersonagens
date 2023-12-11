@@ -1,20 +1,26 @@
 package br.edu.infnet.criadordepersonagem.model.negocio;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PersonagemBasico {
     //Atributos
-    private String nomePersonagem;
+    @JsonProperty("Nome do Jogador")
     private String nomeJogador;
+    @JsonProperty("Nome do Personagem")
+    private String nomePersonagem;
+    @JsonProperty("Nível")
     private int level;
 
     //Getters e Setters;
     //Construtor
 
-    public PersonagemBasico(String nomePersonagem, String nomeJogador) {
+    public void adicionaPersonagemBasico(String nomePersonagem, String nomeJogador) {
         setNomePersonagem(nomePersonagem);
         setNomeJogador(nomeJogador);
         setLevel(1);

@@ -1,13 +1,13 @@
 package br.edu.infnet.criadordepersonagem.model.testes;
 
 import br.edu.infnet.criadordepersonagem.model.negocio.Arma;
-import br.edu.infnet.criadordepersonagem.model.service.mappers.fromJSON.ArmaObjectMapper;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ArmaObjectMapper;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.appendJsonToExistingFile;
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.convertObjectToJson;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.appendJsonToExistingFile;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.convertObjectToJson;
 
 public class ArmaTeste {
     public static void main (String[] args) throws IOException {

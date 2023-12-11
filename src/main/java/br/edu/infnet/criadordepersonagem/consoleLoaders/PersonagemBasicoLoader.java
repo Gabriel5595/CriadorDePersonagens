@@ -1,6 +1,7 @@
 package br.edu.infnet.criadordepersonagem.consoleLoaders;
 
 import br.edu.infnet.criadordepersonagem.model.negocio.PersonagemBasico;
+import br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.PersonagemBasicoObjectMapper;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -8,14 +9,13 @@ import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
-import static br.edu.infnet.criadordepersonagem.model.service.mappers.toJSON.ClassToJSON.*;
+import static br.edu.infnet.criadordepersonagem.model.service.mappers.JSON.ClassToJSON.*;
 
 @Order(1)
 @Component
 public class PersonagemBasicoLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        //Introdução
         System.out.println("[Personagem Básico] Classe iniciada com sucesso!\n");
         System.out.println("""
                 BEM VINDO, AVENTUREIRO!
@@ -31,9 +31,16 @@ public class PersonagemBasicoLoader implements ApplicationRunner {
         System.out.println("E nessa aventura épica como você gostaria de ser chamado, " + nomeJogador + "?");
         String nomePersonagem = scanner.nextLine();
 
-        //criação da classe
-        PersonagemBasico personagemBasico = new PersonagemBasico(nomePersonagem, nomeJogador);
+        //Instancia atributos novos
+        PersonagemBasico personagemBasico = new PersonagemBasico();
+        //adiciona os atributos
+        personagemBasico.adicionaPersonagemBasico(nomePersonagem, nomeJogador);
         System.out.println(personagemBasico);
+
+        //Cria arquivo Json com a classe finalizada.
+        PersonagemBasicoObjectMapper.escreverJson(personagemBasico);
+
+        //Adiciona a classe finalizada ao arquivo personagem.json
         String jsonPersonagemBasica = convertObjectToJson(personagemBasico);
         appendJsonToExistingFile(jsonPersonagemBasica, "Personagem Básico");
     }

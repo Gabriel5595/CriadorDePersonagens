@@ -1,4 +1,62 @@
 {
+  "Personagem Básico": {
+    "Nome do Jogador": "Gabriel",
+    "Nome do Personagem": "Eldred",
+    "Nível": 1
+  },
+  "Atributos e Modificadores": {
+    "Força": 17,
+    "Modificador de Força": 3,
+    "Destreza": 17,
+    "Modificador de Destreza": 3,
+    "Constituição": 14,
+    "Modificador de Constituição": 2,
+    "Inteligência": 13,
+    "Modificador de Inteligência": 1,
+    "Sabedoria": 11,
+    "Modificador de Sabedoria": 0,
+    "Carisma": 9,
+    "Modificador de Carisma": -1
+  },
+  "Raça": {
+    "Nome": "Humano",
+    "Tamanho": "Médio",
+    "Deslocamento": "9m",
+    "Traços Raciais": {
+      "1": "Todos os seus valores de habilidade aumentam em 1.",
+      "2": "Você pode falar, ler e escrever Comum e outro idioma adicional, à sua escolha."
+    },
+    "subRaça": [
+      "Nenhuma"
+    ]
+  },
+  "Perícias": {
+    "Acrobacia": 3,
+    "Arcanismo": 1,
+    "Atletismo": 5,
+    "Atuação": -1,
+    "Furtividade": 3,
+    "História": 1,
+    "Intimidação": -1,
+    "Intuição": 0,
+    "Investigação": 1,
+    "Lidar com Animais": 2,
+    "Medicina": 0,
+    "Natureza": 1,
+    "Percepção": 2,
+    "Persuasão": -1,
+    "Prestidigitação": 3,
+    "Religião": 1,
+    "Sobrevivência": 2
+  },
+  "Classe": {
+    "Nome": "Patrulheiro",
+    "Dado de Vida": "1d10",
+    "Características da Classe": {
+      "Inimigo Favorito": "A partir do 1° nível, você tem experiência significativa estudando, rastreando, caçando e, até mesmo, falando com certos tipos de inimigos. Escolha um tipo de inimigo favorito: aberrações, bestas, celestiais, constructos, corruptores, dragões, elementais, fadas, gigantes, limos, monstruosidades, mortos-vivos ou plantas. Alternativamente, você pode escolher duas raças de humanoides (como gnolls e orcs) para seus inimigos favoritos.",
+      "Explorador Natural": "Você está particularmente familiarizado com um tipo de ambiente natural e é perito em viajar e sobreviver em tais regiões. Escolha um tipo de terreno favorito: ártico, costa, deserto, floresta, montanha, pântano, planície ou subterrâneo. Quando você fizer um teste de Inteligência ou de Sabedoria relacionado ao seu terreno favorito, seu bônus de proficiência será dobrado se você estiver usando uma perícia na qual seja proficiente."
+    }
+  },
   "Arma": {
     "Nome": "Espada Curta",
     "Tipo": "Marcial",
@@ -7,16 +65,16 @@
     "Corpo-a-corpo ou Distância": "Corpo-a-corpo"
   },
   "Armadura": {
-    "Nome": "Couro",
-    "Tipo de Armadura": "Leve",
-    "Defesa": 11,
+    "Nome": "Gibão de Peles",
+    "Tipo de Armadura": "Média",
+    "Defesa": 12,
     "Requisito de Força": 0,
     "Desvantagem de Furtividade": false
   },
   "Dinheiro": {
     "pecasDeCobre": 100,
     "pecasDePrata": 50,
-    "pecasDeOuro": 10,
+    "pecasDeOuro": 2,
     "pecasDePlatina": 0
   },
   "Outros Equipamentos": {
@@ -27,5 +85,9 @@
       "Mochila": 1,
       "Carda de Cânhamo": 1
     }
+  },
+  "Vida e Defesa": {
+    "Vida": 4,
+    "Classe de Armadura": 14
   }
 }
